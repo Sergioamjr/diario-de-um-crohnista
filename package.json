@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "get": "node ./scripts/migrateFromWp.js",
+    "get:posts": "node ./scripts/migrateFromWp.js",
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
