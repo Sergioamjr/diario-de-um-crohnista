@@ -1,34 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# React Pixel Perfect
 
-## Getting Started
+Upload and compare the markup design with your screen while you're coding.
 
-First, run the development server:
+## Why
 
-```bash
-npm run dev
-# or
-yarn dev
+Have you ever tried to create a screen following a markup but it doesn't look perfect? It's very difficult to create a pixel perfect screen switching your eyes between monitors, tabs and the designers always find a spacing, color, line height to be fixed when they're doing the QA.
+
+React Pixel Perfect puts the design markup over your layout, so, you can see the differences between them, controlling its position, size and opacity.
+
+Designers also can use the [official website](https://react-pixel-perfect.netlify.app/#/) to do a QA, entering an URL of a screen to inspect.
+
+## Installation
+
+```cmd
+npm install -D react-pixel-perfect
+// or
+yarn add -D react-pixel-perfect
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Usage
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Import the main component and wrap to top level of your application or page that you want to compare.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+```javascript
+import PixelPerfect from "react-pixel-perfect";
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+function App(props) {
+  return <YourApplication {...props} />;
+}
 
-## Learn More
+export default PixelPerfect(App);
+```
 
-To learn more about Next.js, take a look at the following resources:
+A button should appears on the right bottom of your page. Now you can upload a image and then controll its size, position, opacity over your screen, reset its settings and delete the image.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## It's important to you know
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- The localstorage's API is used to save your image as base64, its size limit is 10MB. If the cota is exceeded, it will not save/update but you can still use it.
 
-## Deploy on Vercel
+- A layer with your uploaded image is put over your page, nevertheless, mouse's events, such as hover, click, focus on elements might not work properly.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contribution
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Please, feel free to use it, open an issue or a pull request.
+
+License
+
+MIT

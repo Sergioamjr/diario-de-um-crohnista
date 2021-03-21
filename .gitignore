@@ -16,6 +16,7 @@ src/wp
 
 # production
 /build
+/public 
 
 # misc
 .DS_Store
