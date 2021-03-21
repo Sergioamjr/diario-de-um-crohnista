@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { Component, FixMeLater } from "../src/types";
+import { Component, FixMeLater, AllPosts, SinglePost } from "../src/types";
 import { getAllPosts } from "../src/utils";
 
-export default function Home(props): Component {
+export default function Home(props: AllPosts): Component {
   return (
     <div>
       <p>Olá</p>
@@ -21,8 +21,7 @@ export async function getStaticProps(): Promise<FixMeLater> {
   const posts = getAllPosts();
   return {
     props: {
-      das: 2,
-      posts: posts.map((post) => ({
+      posts: posts.map((post: SinglePost) => ({
         slug: post.slug,
         title: post.frontmatter.title,
       })),

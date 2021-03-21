@@ -1,7 +1,7 @@
-import '../styles/globals.css'
+/* eslint-disable react/prop-types */
+import "../styles/globals.css";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export default function App({ Component, pageProps }) {
+  return <Component {...pageProps} />;
 }
-
-export default MyApp
