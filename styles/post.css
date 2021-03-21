@@ -1,0 +1,34 @@
+.post-content p:not(p:last-child) {
+  margin-bottom: var(--marginXLarge);
+}
+
+.post-content img {
+  width: auto;
+}
+.post-content a {
+  color: var(--blue);
+  border-bottom: 2px solid var(--blue);
+}
+
+.post-content p,
+.date {
+  font-size: 18px;
+  color: var(--dark);
+  line-height: var(--lineHeight);
+}
+
+.date {
+  margin-bottom: var(--marginSmall);
+  display: block;
+  color: var(--gray);
+}
+
+.title {
+  margin: 0 auto;
+  margin-bottom: var(--marginXLarge);
+  text-align: center;
+  font-size: 48px;
+  max-width: 700px;
+  font-weight: bold;
+  color: var(--dark);
+}

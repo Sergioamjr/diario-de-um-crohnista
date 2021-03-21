@@ -2,12 +2,22 @@ import remark from "remark";
 import html from "remark-html";
 import { FixMeLater, InitialProps, SinglePost } from "../src/types";
 import { getAllPosts, getPostBySlug } from "../src/utils";
+import Header from "../src/components/header";
 
 export default function Slug(props: SinglePost): JSX.Element {
   return (
-    <div className="container">
-      <h1>{props.frontmatter.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: props.content }} />
+    <div>
+      <Header />
+      <div className="container">
+        <div className="body_">
+          <h1 className="title">{props.frontmatter.title}</h1>
+          <span className="date">Publicado em 10 de setembro de 2021</span>
+          <div
+            className="post-content"
+            dangerouslySetInnerHTML={{ __html: props.content }}
+          />
+        </div>
+      </div>
     </div>
   );
 }

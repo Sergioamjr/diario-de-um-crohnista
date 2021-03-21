@@ -16,7 +16,7 @@ export function getPostBySlug(slug: string): SinglePost {
   return {
     slug: pageSlug,
     content,
-    frontmatter: { title, image, excerpt, date },
+    frontmatter: { title, image: image ?? null, excerpt, date },
   };
 }
 
