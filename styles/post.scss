@@ -3,9 +3,28 @@
   margin-bottom: var(--marginXLarge);
 }
 
+.post-content {
+  margin-bottom: var(--marginXLarge);
+  padding-bottom: var(--marginXLarge);
+  border-bottom: 1px solid #f1f1f1;
+}
+
 .post-content img {
   width: auto;
 }
+
+.post-content {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--dark);
+    font-weight: 600;
+    margin-bottom: var(--marginMedium);
+  }
+}
+
 .post-content a {
   color: var(--blue);
   border-bottom: 2px solid var(--blue);
@@ -22,6 +41,15 @@
   font-size: 18px;
   color: var(--dark);
   line-height: var(--lineHeight);
+}
+
+.text {
+  font-size: 18px;
+  color: var(--dark);
+  line-height: var(--lineHeight);
+  &:not(&:last-child) {
+    margin-bottom: 10px;
+  }
 }
 
 .date {

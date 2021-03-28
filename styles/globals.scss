@@ -1,4 +1,5 @@
 :root {
+  --qualquer: red;
   --blue: #1e90ff;
   --white: #ffffff;
   --marginSmall: 4px;
@@ -57,4 +58,29 @@ header .logo {
 
 .sidebar {
   width: 25%;
+}
+
+.class .outraclase .aaca {
+  color: red;
+}
+
+$quaquercoisa: red;
+
+.class {
+  .aaca {
+    color: $quaquercoisa;
+  }
+}
+
+.about-me {
+  display: flex;
+  align-items: flex-start;
+  img {
+    width: 150px;
+    margin-right: 15px;
+    border-radius: 50%;
+  }
+  & > div {
+    width: calc(100% - 165px);
+  }
 }

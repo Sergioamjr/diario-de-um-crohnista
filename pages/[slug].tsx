@@ -4,6 +4,7 @@ import { FixMeLater, InitialProps, SinglePost } from "../src/types";
 import { getAllPosts, getPostBySlug } from "../src/utils";
 import Header from "../src/components/header";
 import { format } from "date-fns";
+import AboutMe from "../src/components/about-me";
 
 export default function Slug(props: SinglePost): JSX.Element {
   return (
@@ -20,6 +21,7 @@ export default function Slug(props: SinglePost): JSX.Element {
             className="post-content"
             dangerouslySetInnerHTML={{ __html: props.content }}
           />
+          <AboutMe />
         </div>
       </div>
     </div>
