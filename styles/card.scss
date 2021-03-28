@@ -4,7 +4,7 @@
   &--image {
     margin-bottom: var(--marginMedium);
     height: 240px;
-    object-fit: cover;
+    position: relative;
   }
   &--with-filter {
     filter: hue-rotate(76deg);

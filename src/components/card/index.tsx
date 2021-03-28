@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import { PostPreview } from "./../../types";
+import { ImageWithLoader } from "../image-with-loader";
 
 export default function Card({
   title,
@@ -14,15 +14,13 @@ export default function Card({
     <div className="post-card">
       <Link href={slug}>
         <a>
-          <figure className="post-card--image" style={{ position: "relative" }}>
-            <Image
-              quality={100}
-              className={`${image ? "" : "post-card--with-filter"}`}
-              alt=""
-              layout="fill"
-              src={thumbnail}
-            />
-          </figure>
+          <ImageWithLoader
+            quality={100}
+            className={`${image ? "" : "post-card--with-filter"}`}
+            alt=""
+            layout="fill"
+            src={thumbnail}
+          />
         </a>
       </Link>
       <h2 className="post-card--title">{title}</h2>
