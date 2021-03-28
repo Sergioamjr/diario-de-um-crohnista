@@ -21,9 +21,9 @@ export type InitialProps = {
   };
 };
 
-type Post = Pick<SinglePost, "slug"> &
+export type PostPreview = Pick<SinglePost, "slug"> &
   Pick<Frontmatter, "excerpt" | "image" | "title">;
 
 export type AllPosts = {
-  posts: Post[];
+  posts: PostPreview[];
 };

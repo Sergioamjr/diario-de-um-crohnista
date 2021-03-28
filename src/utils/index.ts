@@ -11,8 +11,8 @@ export function getPostBySlug(slug: string): SinglePost {
   const fullPath = join(postsDirectory, `${slug}/index.mdx`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { content, data } = matter(fileContents);
-  const date = format(new Date(), "MMMM dd, yyyy");
   const { slug: pageSlug, title, image, excerpt } = data;
+  const date = data.date;
   return {
     slug: pageSlug,
     content,
