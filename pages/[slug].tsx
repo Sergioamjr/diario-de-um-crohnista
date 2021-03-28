@@ -26,6 +26,7 @@ export async function getStaticProps({
   params,
 }: InitialProps): Promise<FixMeLater> {
   const post = getPostBySlug(`/${params.slug}`);
+  console.log("post", post);
   const markdown = await remark()
     .use(html)
     .process(post.content || "");

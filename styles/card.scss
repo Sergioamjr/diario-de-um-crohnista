@@ -1,0 +1,25 @@
+.post-card {
+  max-width: 100%;
+  margin-bottom: var(--marginXLarge);
+  &--image {
+    margin-bottom: var(--marginMedium);
+    height: 240px;
+    object-fit: cover;
+  }
+  &--with-filter {
+    filter: hue-rotate(76deg);
+  }
+  &--title {
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: var(--marginMedium);
+    font-size: var(--fontSizeLarge);
+  }
+  &--excerpt {
+    margin-bottom: var(--marginMedium);
+    color: var(--dark);
+  }
+  &--link {
+    color: var(--link);
+  }
+}

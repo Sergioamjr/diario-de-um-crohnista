@@ -2,13 +2,15 @@ export type FixMeLater = unknown;
 
 export type Component = JSX.Element;
 
+type Frontmatter = {
+  title: string;
+  date: string;
+  excerpt: string;
+  image?: string;
+};
+
 export type SinglePost = {
-  frontmatter: {
-    title: string;
-    date: string;
-    excerpt: string;
-    image?: string;
-  };
+  frontmatter: Frontmatter;
   slug: string;
   content: string;
 };
@@ -19,10 +21,8 @@ export type InitialProps = {
   };
 };
 
-type Post = {
-  slug: string;
-  title: string;
-};
+type Post = Pick<SinglePost, "slug"> &
+  Pick<Frontmatter, "excerpt" | "image" | "title">;
 
 export type AllPosts = {
   posts: Post[];

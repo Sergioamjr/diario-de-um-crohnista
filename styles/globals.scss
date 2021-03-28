@@ -10,7 +10,13 @@
   --gray: #747474;
   --link: #4b9ce2;
   --theme: #42af96;
+  --fontSizeSmall: 0.8rem;
+  --fontSizeMedium: 1rem;
+  --fontSizeLarge: 1.3rem;
+  --fontSizeXLarge: 1.5rem;
 }
+
+@import "card", "post", "grid";
 
 * {
   padding: 0;

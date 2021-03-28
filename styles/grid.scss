@@ -1,0 +1,36 @@
+$columns: 1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12;
+
+.grid {
+  margin: 0 -15px;
+  display: flex;
+  flex-wrap: wrap;
+  @media screen and (min-width: 762px) {
+    @each $column in $columns {
+      .xs-row-#{$column} {
+        padding: 0 15px;
+        list-style-type: none;
+        width: calc(100% / 12 * #{$column});
+      }
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    @each $column in $columns {
+      .sm-row-#{$column} {
+        padding: 0 15px;
+        list-style-type: none;
+        width: calc(100% / 12 * #{$column});
+      }
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    @each $column in $columns {
+      .md-row-#{$column} {
+        padding: 0 15px;
+        list-style-type: none;
+        width: calc(100% / 12 * #{$column});
+      }
+    }
+  }
+}
