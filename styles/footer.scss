@@ -1,0 +1,21 @@
+footer {
+  padding: calc(var(--marginXLarge) * 2) 0;
+  background: var(--dark);
+
+  .title_ {
+    color: var(--theme);
+    font-weight: 600;
+  }
+
+  li {
+    color: var(--link);
+    margin-bottom: var(--marginMedium);
+  }
+  .sm-row-4:not(:last-child) {
+    margin-bottom: 40px;
+  }
+}
+
+:where(footer) p {
+  color: #fff;
+}

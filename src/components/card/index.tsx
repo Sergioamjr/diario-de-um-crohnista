@@ -15,6 +15,7 @@ export default function Card({
       <Link href={slug}>
         <a>
           <ImageWithLoader
+            uniqueKey={title}
             quality={100}
             className={`${image ? "" : "post-card--with-filter"}`}
             alt=""

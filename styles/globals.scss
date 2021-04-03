@@ -17,7 +17,7 @@
   --fontSizeXLarge: 1.5rem;
 }
 
-@import "card", "post", "grid";
+@import "card", "post", "grid", "footer";
 
 * {
   padding: 0;
@@ -27,8 +27,9 @@
 }
 
 a {
-  color: inherit;
+  color: var(--link);
   text-decoration: none;
+  border-bottom: 2px solid;
 }
 
 img {
@@ -50,26 +51,11 @@ header {
 header .logo {
   font-size: 22px;
   color: var(--white);
+  border: 0;
 }
 
 .body {
   width: 75%;
-}
-
-.sidebar {
-  width: 25%;
-}
-
-.class .outraclase .aaca {
-  color: red;
-}
-
-$quaquercoisa: red;
-
-.class {
-  .aaca {
-    color: $quaquercoisa;
-  }
 }
 
 .about-me {
@@ -82,5 +68,25 @@ $quaquercoisa: red;
   }
   & > div {
     width: calc(100% - 165px);
+  }
+}
+
+.add-margin-left {
+  padding-left: 15px;
+}
+
+.title_ {
+  position: relative;
+  font-size: var(--fontSizeLarge);
+  color: var(--dark);
+  margin-bottom: var(--marginLarge);
+  &:before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    background: var(--theme);
+    height: 2px;
+    left: 0;
+    bottom: -3px;
   }
 }

@@ -2,6 +2,8 @@ import { useState } from "react";
 import Image, { ImageProps } from "next/image";
 import ContentLoader from "react-content-loader";
 
+type ImageWithLoaderType = ImageProps & { uniqueKey?: string };
+
 const MyLoader = (props) => (
   <ContentLoader
     speed={2}
@@ -15,7 +17,10 @@ const MyLoader = (props) => (
   </ContentLoader>
 );
 
-export function ImageWithLoader(props: ImageProps): JSX.Element {
+export function ImageWithLoader({
+  uniqueKey,
+  ...props
+}: ImageWithLoaderType): JSX.Element {
   const [imageLoaded, setImageLoaded] = useState(false);
   const onImageLoader = () => {
     setTimeout(() => {
@@ -32,6 +37,7 @@ export function ImageWithLoader(props: ImageProps): JSX.Element {
           opacity: imageLoaded ? 0 : 1,
           transition: "opacity .4s ease",
         }}
+        uniqueKey={uniqueKey}
       />
       <Image onLoad={onImageLoader} {...props} />
     </figure>

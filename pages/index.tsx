@@ -1,22 +1,20 @@
-import { Component, FixMeLater, AllPosts, SinglePost } from "../src/types";
-import { getAllPosts } from "../src/utils";
-import Header from "../src/components/header";
-import Card from "../src/components/card";
+import { Component, FixMeLater, AllPosts, SinglePost } from "~types";
+import { getAllPosts } from "~utils";
+import Card from "~components/card";
+import Template from "~components/template";
 
 export default function Home(props: AllPosts): Component {
   return (
-    <div>
-      <Header />
-      <div className="container">
-        <ul className="grid">
-          {props.posts.map(({ slug, title, image, excerpt }) => (
-            <li key={slug} className="xs-row-6 sm-row-4">
-              <Card title={title} slug={slug} excerpt={excerpt} image={image} />
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    <Template>
+      <h3 className="title_">Últimas publicações</h3>
+      <ul className="grid">
+        {props.posts.map(({ slug, title, image, excerpt }) => (
+          <li key={slug} className="xs-row-6">
+            <Card title={title} slug={slug} excerpt={excerpt} image={image} />
+          </li>
+        ))}
+      </ul>
+    </Template>
   );
 }
 
@@ -37,7 +35,10 @@ export async function getStaticProps(): Promise<FixMeLater> {
           title: post.frontmatter.title,
           excerpt: post.frontmatter.excerpt,
           image: post.frontmatter.image,
-        })),
+        }))
+        .filter((_post, index) => {
+          return index < 6;
+        }),
     },
   };
 }

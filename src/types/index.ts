@@ -1,6 +1,14 @@
+import React from "react";
+
 export type FixMeLater = unknown;
 
 export type Component = JSX.Element;
+
+export type WithChildren = {
+  children: React.ReactNode;
+};
+
+export type TypesWithChildren<P> = WithChildren & P;
 
 type Frontmatter = {
   title: string;
