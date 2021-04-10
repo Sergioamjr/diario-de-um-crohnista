@@ -2,29 +2,25 @@ import remark from "remark";
 import html from "remark-html";
 import { FixMeLater, InitialProps, SinglePost } from "../src/types";
 import { getAllPosts, getPostBySlug } from "../src/utils";
-import Header from "../src/components/header";
 import { format } from "date-fns";
 import AboutMe from "../src/components/about-me";
+import Template from "~components/template";
 
 export default function Slug(props: SinglePost): JSX.Element {
   return (
-    <div>
-      <Header />
-      <div className="container">
-        <div className="body_ fadein-animate">
-          <h1 className="title">{props.frontmatter.title}</h1>
-          <span className="date">
-            Publicado em{" "}
-            {format(new Date(props.frontmatter.date), "dd/MM/yyyy")}
-          </span>
-          <article
-            className="post-content"
-            dangerouslySetInnerHTML={{ __html: props.content }}
-          />
-          <AboutMe />
-        </div>
+    <Template>
+      <div className="body_ fadein-animate">
+        <h1 className="title">{props.frontmatter.title}</h1>
+        <span className="date">
+          Publicado em {format(new Date(props.frontmatter.date), "dd/MM/yyyy")}
+        </span>
+        <article
+          className="post-content"
+          dangerouslySetInnerHTML={{ __html: props.content }}
+        />
+        <AboutMe />
       </div>
-    </div>
+    </Template>
   );
 }
 
