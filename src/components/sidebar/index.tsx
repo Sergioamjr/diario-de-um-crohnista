@@ -12,12 +12,16 @@ export default function Sidebar(): JSX.Element {
           allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
         ></iframe>
       </div>
-      <div>
-        <h3 className="title_">Principais publicações</h3>
-      </div>
-      <div>
-        <h3 className="title_">Conheça as DII</h3>
-      </div>
+      {false && (
+        <div>
+          <div>
+            <h3 className="title_">Principais publicações</h3>
+          </div>
+          <div>
+            <h3 className="title_">Conheça as DII</h3>
+          </div>
+        </div>
+      )}
     </aside>
   );
 }

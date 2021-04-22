@@ -58,7 +58,14 @@ header .logo {
   width: 75%;
 }
 
+aside {
+  margin-bottom: var(--marginXLarge);
+  padding-bottom: var(--marginXLarge);
+}
+
 .about-me {
+  margin-bottom: var(--marginXLarge);
+  padding-bottom: var(--marginXLarge);
   display: flex;
   align-items: flex-start;
   img {
