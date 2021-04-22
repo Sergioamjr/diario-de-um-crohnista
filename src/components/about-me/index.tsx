@@ -21,7 +21,7 @@ export default function AboutMe(): JSX.Element {
         <p className="text">
           Caso queira tirar alguma dúvida ou falar diretamente comigo, sinta-se
           a vontade{" "}
-          <a href="http://wa.me/5511973836084">
+          <a rel="noreferrer" target="_blank" href="http://wa.me/5511973836084">
             em me mandar uma mensagem no whatsapp
           </a>
           .

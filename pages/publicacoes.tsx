@@ -1,22 +1,19 @@
 import { Component, FixMeLater, AllPosts, SinglePost } from "../src/types";
 import { getAllPosts } from "../src/utils";
-import Header from "../src/components/header";
 import Card from "../src/components/card";
+import Template from "~components/template";
 
 export default function Home(props: AllPosts): Component {
   return (
-    <div>
-      <Header />
-      <div className="container">
-        <ul className="grid">
-          {props.posts.map(({ slug, title, image, excerpt }) => (
-            <li key={slug} className="xs-row-6 sm-row-4">
-              <Card title={title} slug={slug} excerpt={excerpt} image={image} />
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    <Template>
+      <ul className="grid">
+        {props.posts.map(({ slug, title, image, excerpt }) => (
+          <li key={slug} className="xs-row-6">
+            <Card title={title} slug={slug} excerpt={excerpt} image={image} />
+          </li>
+        ))}
+      </ul>
+    </Template>
   );
 }
 

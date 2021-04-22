@@ -54,6 +54,14 @@ header .logo {
   border: 0;
 }
 
+header {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
 .body {
   width: 75%;
 }
@@ -95,5 +103,19 @@ aside {
     height: 2px;
     left: 0;
     bottom: -3px;
+  }
+}
+
+nav {
+  ul {
+    display: flex;
+    li {
+      list-style-type: none;
+      margin-left: var(--marginMedium);
+      a {
+        color: #fff;
+        border: none;
+      }
+    }
   }
 }
