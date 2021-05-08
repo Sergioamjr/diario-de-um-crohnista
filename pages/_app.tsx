@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-import Head from "next/head";
 import Seo from "~components/seo";
 import type { AppProps } from "next/app";
 import "../styles/globals.scss";
@@ -14,15 +12,14 @@ export default function App({ Component, pageProps, router }: AppProps) {
 
   return (
     <>
-      <Head>
-        <Seo
-          publishedAt={publishedAt}
-          url={url}
-          title={title}
-          description={description}
-          thumbnail={thumbnail}
-        />
-      </Head>
+      <Seo
+        publishedAt={publishedAt}
+        url={url}
+        title={title}
+        description={description}
+        thumbnail={thumbnail}
+      />
+
       <Component {...pageProps} />
     </>
   );

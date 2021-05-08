@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 type SeoTypes = {
   title?: string;
   description?: string;
@@ -20,8 +22,9 @@ export default function Seo({
   publishedAt,
 }: SeoTypes): JSX.Element {
   return (
-    <>
-      <meta name="viewport" content="width=device-width" />
+    <Head>
+      <title>{title}</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="theme-color" content={color} />
       <meta name="msapplication-navbutton-color" content={color} />
       <meta name="apple-mobile-web-app-status-bar-style" content={color} />
@@ -44,6 +47,6 @@ export default function Seo({
       <meta name="twitter:site" content={siteName} />
       <meta name="twitter:image" content={thumbnail} />
       <meta name="twitter:creator" content={author} />
-    </>
+    </Head>
   );
 }

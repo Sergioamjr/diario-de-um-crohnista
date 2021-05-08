@@ -31,7 +31,7 @@ export async function getStaticProps(): Promise<FixMeLater> {
           );
         })
         .map((post: SinglePost) => ({
-          slug: post.slug,
+          slug: `/${post.slug}`,
           title: post.frontmatter.title,
           excerpt: post.frontmatter.excerpt,
           image: post.frontmatter.image,

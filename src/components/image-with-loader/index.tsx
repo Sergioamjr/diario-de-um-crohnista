@@ -37,7 +37,7 @@ export function ImageWithLoader({
           opacity: imageLoaded ? 0 : 1,
           transition: "opacity .4s ease",
         }}
-        uniqueKey={uniqueKey}
+        uniqueKey={uniqueKey.split(" ").join().toLowerCase().replace(/,/g, "")}
       />
       <Image onLoad={onImageLoader} {...props} />
     </figure>
