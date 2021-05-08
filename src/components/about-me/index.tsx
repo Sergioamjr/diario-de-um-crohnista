@@ -1,7 +1,10 @@
 export default function AboutMe(): JSX.Element {
   return (
     <div className="about-me">
-      <img src="/me.jpeg" />
+      <img
+        alt="Foto do autor, Sérgio Júnior, sorrindo, com uma barba curta e camisa preta."
+        src="/me.jpeg"
+      />
       <div>
         <h2>Sobre mim</h2>
         <p className="text">
