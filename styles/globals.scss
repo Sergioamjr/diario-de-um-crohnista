@@ -7,7 +7,7 @@
   --marginLarge: 16px;
   --marginXLarge: 24px;
   --dark: #333;
-  --lineHeight: 1.5;
+  --lineHeight: 1.8;
   --gray: #747474;
   --link: #4b9ce2;
   --theme: #42af96;
@@ -19,11 +19,35 @@
 
 @import "card", "post", "grid", "footer";
 
+@font-face {
+  font-family: "MerriweatherFont";
+  src: url("../public/font/Merriweather-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "MerriweatherFont";
+  src: url("../public/font/Merriweather-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "MerriweatherFont";
+  src: url("../public/font/Merriweather-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "MerriweatherFont";
+  src: url("../public/font/Merriweather-Italic.ttf") format("truetype");
+  font-style: italic;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
+  font-family: "MerriweatherFont";
 }
 
 a {

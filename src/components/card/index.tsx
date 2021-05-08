@@ -26,7 +26,7 @@ export default function Card({
       </Link>
       <h2 className="post-card--title">{title}</h2>
       <div
-        className="post-card--excerpt"
+        className="post-card--excerpt text"
         dangerouslySetInnerHTML={{ __html: excerpt }}
       />
       <Link href={slug}>
