@@ -12,11 +12,14 @@ export default function AboutMe(): JSX.Element {
         </p>
 
         <p className="text">
-          Criei esse blog pra ser mais uma fonte de informação, ajudar os outros
-          portadores, divulgar as DII’s para sociedade e mostrar que é possível
-          viver bem com uma DII. Caso queira tirar alguma dúvida ou falar
-          diretamente comigo, sinta-se a vontade de me mandar uma mensagem no
-          whatsapp.
+          Criei o blog Diário de um Crohnista em 2016 pra ser mais uma fonte de
+          informação, ajudar os outros portadores, divulgar as DII’s para
+          sociedade e mostrar que é possível viver bem com uma DII.
+        </p>
+
+        <p className="text">
+          Caso queira tirar alguma dúvida ou falar diretamente comigo, sinta-se
+          a vontade de me mandar uma mensagem no whatsapp.
         </p>
         <p className="text">
           Caso queira tirar alguma dúvida ou falar diretamente comigo, sinta-se
@@ -24,7 +27,11 @@ export default function AboutMe(): JSX.Element {
           <a rel="noreferrer" target="_blank" href="http://wa.me/5511973836084">
             em me mandar uma mensagem no whatsapp
           </a>
-          .
+          ,{" "}
+          <a rel="noreferrer" target="_blank" href="http://wa.me/5511973836084">
+            me seguir no Instagram
+          </a>{" "}
+          ou me mandando um para sergioamjr91@gmail.com.
         </p>
       </div>
     </div>

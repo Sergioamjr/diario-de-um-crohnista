@@ -19,6 +19,11 @@ export default function Header(): JSX.Element {
                 <a>Publicações</a>
               </Link>
             </li>
+            <li>
+              <Link href="/sobre-mim">
+                <a>Sobre mim</a>
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>

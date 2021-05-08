@@ -25,7 +25,7 @@ export function ImageWithLoader({
   const onImageLoader = () => {
     setTimeout(() => {
       setImageLoaded(true);
-    }, 500);
+    }, 0);
   };
 
   return (

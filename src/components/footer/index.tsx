@@ -19,10 +19,10 @@ export default function Footer(): JSX.Element {
                 <a href="/">Início</a>
               </li>
               <li>
-                <a href="/">Publicações</a>
+                <a href="/publicacoes">Publicações</a>
               </li>
               <li>
-                <a href="/">Sobre mim</a>
+                <a href="/sobre-mim">Sobre mim</a>
               </li>
             </ul>
           </div>
@@ -30,10 +30,22 @@ export default function Footer(): JSX.Element {
             <h3 className="title_">Minhas redes sociais</h3>
             <ul className="add-margin-left">
               <li>
-                <a href="/">Facebook do blog</a>
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  href="https://www.facebook.com/diariodeumcrohnista/"
+                >
+                  Facebook do blog
+                </a>
               </li>
               <li>
-                <a href="/">Instagram pessoal</a>
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  href="https://www.instagram.com/sergioamjr_/"
+                >
+                  Instagram pessoal
+                </a>
               </li>
             </ul>
           </div>
