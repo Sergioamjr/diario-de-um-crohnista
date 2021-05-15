@@ -1,6 +1,8 @@
+import { useRouter } from "next/router";
 import Link from "next/link";
 
 export default function Header(): JSX.Element {
+  const route = useRouter();
   return (
     <header>
       <div className="container">
@@ -11,17 +13,25 @@ export default function Header(): JSX.Element {
           <ul>
             <li>
               <Link href="/">
-                <a>Início</a>
+                <a className={route.pathname === "/" ? "actived" : ""}>
+                  Início
+                </a>
               </Link>
             </li>
             <li>
               <Link href="/publicacoes">
-                <a>Publicações</a>
+                <a
+                  className={route.pathname === "/publicacoes" ? "actived" : ""}
+                >
+                  Publicações
+                </a>
               </Link>
             </li>
             <li>
               <Link href="/sobre-mim">
-                <a>Sobre mim</a>
+                <a className={route.pathname === "/sobre-mim" ? "actived" : ""}>
+                  Sobre mim
+                </a>
               </Link>
             </li>
           </ul>
