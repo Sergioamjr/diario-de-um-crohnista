@@ -1,5 +1,4 @@
 :root {
-  --qualquer: red;
   --blue: #1e90ff;
   --white: #ffffff;
   --marginSmall: 4px;
@@ -93,6 +92,9 @@ header {
 aside {
   margin-bottom: var(--marginXLarge);
   padding-bottom: var(--marginXLarge);
+  .sidebar-item {
+    margin-bottom: var(--marginXLarge);
+  }
 }
 
 .about-me {

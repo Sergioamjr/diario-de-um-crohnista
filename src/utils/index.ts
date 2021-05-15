@@ -1,4 +1,4 @@
-import { FixMeLater, SinglePost } from "./../types/index";
+import { SinglePost } from "./../types/index";
 import matter from "gray-matter";
 import { join } from "path";
 
@@ -10,13 +10,22 @@ export function getPostBySlug(slug: string): SinglePost {
   const fullPath = join(postsDirectory, `${slug}/index.mdx`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { content, data } = matter(fileContents);
-  const { slug: pageSlug, title, image, excerpt } = data;
+  const {
+    slug: pageSlug,
+    title,
+    image,
+    excerpt,
+    featured = null,
+    categories = [""],
+  } = data;
   const date = data.date;
   return {
     slug: pageSlug,
     content,
     frontmatter: {
       title,
+      featured,
+      categories,
       image: image ?? null,
       excerpt: excerpt ?? null,
       date,
@@ -24,7 +33,7 @@ export function getPostBySlug(slug: string): SinglePost {
   };
 }
 
-export function getAllPosts(): FixMeLater[] {
+export function getAllPosts(): SinglePost[] {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const fs = require("fs");
   const slugs = fs.readdirSync(postsDirectory);

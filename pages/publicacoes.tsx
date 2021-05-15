@@ -5,7 +5,7 @@ import Template from "~components/template";
 
 export default function Home(props: AllPosts): Component {
   return (
-    <Template>
+    <Template postFeatured={props.postFeatured}>
       <ul className="grid">
         {props.posts.map(({ slug, title, image, excerpt }) => (
           <li key={slug} className="xs-row-6">
@@ -19,9 +19,10 @@ export default function Home(props: AllPosts): Component {
 
 export async function getStaticProps(): Promise<FixMeLater> {
   const posts = getAllPosts();
-
+  const postFeatured = posts.filter((p) => p.frontmatter.featured);
   return {
     props: {
+      postFeatured,
       posts: posts
         .sort((a: SinglePost, b: SinglePost) => {
           return (

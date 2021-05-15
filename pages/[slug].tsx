@@ -1,14 +1,15 @@
 import remark from "remark";
+import { GetStaticPaths, GetStaticProps } from "next";
 import html from "remark-html";
-import { FixMeLater, InitialProps, SinglePost } from "../src/types";
-import { getAllPosts, getPostBySlug } from "../src/utils";
+import { SinglePostWithSidebar } from "~types";
+import { getAllPosts, getPostBySlug } from "~utils";
 import { format } from "date-fns";
-import AboutMe from "../src/components/about-me";
+import AboutMe from "~components/about-me";
 import Template from "~components/template";
 
-export default function Slug(props: SinglePost): JSX.Element {
+export default function Slug(props: SinglePostWithSidebar): JSX.Element {
   return (
-    <Template>
+    <Template postFeatured={props.postFeatured}>
       <div className="body_ fadein-animate">
         <h1 className="title">{props.frontmatter.title}</h1>
         <span className="date">
@@ -24,20 +25,20 @@ export default function Slug(props: SinglePost): JSX.Element {
   );
 }
 
-export async function getStaticProps({
-  params,
-}: InitialProps): Promise<FixMeLater> {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const post = getPostBySlug(`/${params.slug}`);
+  const posts = getAllPosts();
+  const postFeatured = posts.filter((p) => p.frontmatter.featured);
   const markdown = await remark()
     .use(html)
     .process(post.content || "");
   const content = markdown.toString();
   return {
-    props: { ...post, content },
+    props: { ...post, content, postFeatured },
   };
-}
+};
 
-export async function getStaticPaths(): Promise<FixMeLater> {
+export const getStaticPaths: GetStaticPaths = async () => {
   const posts = getAllPosts();
   return {
     paths: posts.map(({ slug }) => ({
@@ -45,4 +46,4 @@ export async function getStaticPaths(): Promise<FixMeLater> {
     })),
     fallback: false,
   };
-}
+};

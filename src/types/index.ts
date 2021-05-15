@@ -11,6 +11,8 @@ export type WithChildren = {
 export type TypesWithChildren<P> = WithChildren & P;
 
 type Frontmatter = {
+  featured?: boolean;
+  categories?: string[];
   title: string;
   date: string;
   excerpt: string;
@@ -29,9 +31,15 @@ export type InitialProps = {
   };
 };
 
+export type SidebarTypes = {
+  postFeatured: SinglePost[];
+};
+
+export type SinglePostWithSidebar = SidebarTypes & SinglePost;
+
 export type PostPreview = Pick<SinglePost, "slug"> &
   Pick<Frontmatter, "excerpt" | "image" | "title">;
 
-export type AllPosts = {
+export type AllPosts = SidebarTypes & {
   posts: PostPreview[];
 };

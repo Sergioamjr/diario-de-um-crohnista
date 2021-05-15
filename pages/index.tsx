@@ -1,11 +1,12 @@
-import { Component, FixMeLater, AllPosts, SinglePost } from "~types";
+import { Component, AllPosts, SinglePost } from "~types";
 import { getAllPosts } from "~utils";
 import Card from "~components/card";
 import Template from "~components/template";
+import { GetStaticProps } from "next";
 
 export default function Home(props: AllPosts): Component {
   return (
-    <Template>
+    <Template postFeatured={props.postFeatured}>
       <h3 className="title_">Últimas publicações</h3>
       <ul className="grid">
         {props.posts.map(({ slug, title, image, excerpt }) => (
@@ -18,11 +19,13 @@ export default function Home(props: AllPosts): Component {
   );
 }
 
-export async function getStaticProps(): Promise<FixMeLater> {
+export const getStaticProps: GetStaticProps = async () => {
   const posts = getAllPosts();
+  const postFeatured = posts.filter((p) => p.frontmatter.featured);
 
   return {
     props: {
+      postFeatured,
       posts: posts
         .sort((a: SinglePost, b: SinglePost) => {
           return (
@@ -41,4 +44,4 @@ export async function getStaticProps(): Promise<FixMeLater> {
         }),
     },
   };
-}
+};
