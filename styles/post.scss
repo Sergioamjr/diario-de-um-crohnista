@@ -84,6 +84,30 @@
   }
 }
 
-table tbody tr {
-  background: red;
+table tbody tr:nth-child(2n + 1) {
+  background: #e8e8e8;
+}
+
+table tbody tr td {
+  padding: 5px;
+  line-height: 1.5;
+}
+
+.featured-post {
+  display: flex;
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 22px;
+  img {
+    width: 150px;
+    margin-right: 10px;
+  }
+  .title {
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: var(--marginMedium);
+    font-size: var(--fontSizeLarge);
+  }
+  &:not(:last-of-type) {
+    margin-bottom: 20px;
+  }
 }

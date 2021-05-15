@@ -1,4 +1,5 @@
 import { SidebarTypes } from "~types";
+import Link from "next/link";
 
 export default function Sidebar(props: SidebarTypes): JSX.Element {
   return (
@@ -8,8 +9,14 @@ export default function Sidebar(props: SidebarTypes): JSX.Element {
           <h3 className="title_">Principais publicações</h3>
           {props.postFeatured.map((e) => {
             return (
-              <div key={e.frontmatter.title}>
-                <p>{e.frontmatter.title}</p>
+              <div className="featured-post" key={e.frontmatter.title}>
+                <img src={`/images/${e.frontmatter.image}`} alt="" />
+                <div>
+                  <h3 className="title">{e.frontmatter.title}</h3>
+                  <Link href={e.slug}>
+                    <a>Ler mais</a>
+                  </Link>
+                </div>
               </div>
             );
           })}
