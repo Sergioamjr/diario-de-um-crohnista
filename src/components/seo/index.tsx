@@ -9,9 +9,13 @@ type SeoTypes = {
   author?: string;
   siteName?: string;
   publishedAt?: string;
+  isProduction?: boolean;
+  GA_TRACKING_ID?: string;
 };
 
 export default function Seo({
+  isProduction,
+  GA_TRACKING_ID,
   title = "Diário de um Crohnista | Porque encarar a Doença de Crohn e Retocolite é possível",
   description = "Blog sobre DII, Doenças Inflamatórias Intestinais, como a Doença de Crohn e Retocolite, e qualidade de vida, com informações sobre tratamentos, eventos, notícias, alimentação e pensamentos para se levar uma vida mais saudável.",
   url,
@@ -47,6 +51,24 @@ export default function Seo({
       <meta name="twitter:site" content={siteName} />
       <meta name="twitter:image" content={thumbnail} />
       <meta name="twitter:creator" content={author} />
+
+      {isProduction && (
+        <>
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_TRACKING_ID}');`,
+            }}
+          />
+        </>
+      )}
     </Head>
   );
 }
