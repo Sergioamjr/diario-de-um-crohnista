@@ -28,6 +28,13 @@ export default function Header(): JSX.Element {
               </Link>
             </li>
             <li>
+              <Link href="/podcast">
+                <a className={route.pathname === "/podcast" ? "actived" : ""}>
+                  Podcast
+                </a>
+              </Link>
+            </li>
+            <li>
               <Link href="/sobre-mim">
                 <a className={route.pathname === "/sobre-mim" ? "actived" : ""}>
                   Sobre mim
