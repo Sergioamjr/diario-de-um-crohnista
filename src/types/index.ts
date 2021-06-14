@@ -33,6 +33,7 @@ export type InitialProps = {
 
 export type SidebarTypes = {
   postFeatured: SinglePost[];
+  podcasts: SinglePost[];
 };
 
 export type SinglePostWithSidebar = SidebarTypes & SinglePost;

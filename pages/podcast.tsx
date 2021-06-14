@@ -6,8 +6,8 @@ import { GetStaticProps } from "next";
 
 export default function Podcast(props: AllPosts): Component {
   return (
-    <Template postFeatured={props.postFeatured}>
-      <h3 className="title_">Últimas publicações</h3>
+    <Template postFeatured={props.postFeatured} podcasts={[]}>
+      <h3 className="title_">Últimos episódios</h3>
       <ul className="grid">
         {props.posts.map(({ slug, title, image, excerpt }) => (
           <li key={slug} className="xs-row-6">

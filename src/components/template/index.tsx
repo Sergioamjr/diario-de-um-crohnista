@@ -11,6 +11,7 @@ export default function Template({
   children,
   withSidebar = true,
   postFeatured,
+  podcasts,
 }: TypesWithChildren<TemplateProps>): JSX.Element {
   return (
     <div>
@@ -19,7 +20,9 @@ export default function Template({
         <div className="grid">
           <div className="sm-row-8">{children}</div>
           <div className="sm-row-4">
-            {withSidebar && <Sidebar postFeatured={postFeatured} />}
+            {withSidebar && (
+              <Sidebar podcasts={podcasts} postFeatured={postFeatured} />
+            )}
           </div>
         </div>
       </div>

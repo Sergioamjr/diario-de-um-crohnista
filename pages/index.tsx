@@ -6,7 +6,7 @@ import { GetStaticProps } from "next";
 
 export default function Home(props: AllPosts): Component {
   return (
-    <Template postFeatured={props.postFeatured}>
+    <Template postFeatured={props.postFeatured} podcasts={props.podcasts}>
       <h3 className="title_">Últimas publicações</h3>
       <ul className="grid">
         {props.posts.map(({ slug, title, image, excerpt }) => (
@@ -22,10 +22,21 @@ export default function Home(props: AllPosts): Component {
 export const getStaticProps: GetStaticProps = async () => {
   const posts = getAllPosts();
   const postFeatured = posts.filter((p) => p.frontmatter.featured);
+  const podcasts = posts
+    .filter((post: SinglePost) => {
+      return post.frontmatter.categories.includes("Podcast");
+    })
+    .sort((a: SinglePost, b: SinglePost) => {
+      return (
+        new Date(b.frontmatter.date).getTime() -
+        new Date(a.frontmatter.date).getTime()
+      );
+    });
 
   return {
     props: {
       postFeatured,
+      podcasts,
       posts: posts
         .sort((a: SinglePost, b: SinglePost) => {
           return (

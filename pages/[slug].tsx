@@ -1,7 +1,7 @@
 import remark from "remark";
 import { GetStaticPaths, GetStaticProps } from "next";
 import html from "remark-html";
-import { SinglePostWithSidebar } from "~types";
+import { SinglePost, SinglePostWithSidebar } from "~types";
 import { getAllPosts, getPostBySlug } from "~utils";
 import { format } from "date-fns";
 import AboutMe from "~components/about-me";
@@ -9,7 +9,7 @@ import Template from "~components/template";
 
 export default function Slug(props: SinglePostWithSidebar): JSX.Element {
   return (
-    <Template postFeatured={props.postFeatured}>
+    <Template postFeatured={props.postFeatured} podcasts={props.podcasts}>
       <div className="body_ fadein-animate">
         <h1 className="title">{props.frontmatter.title}</h1>
         <span className="date">
@@ -29,12 +29,23 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const post = getPostBySlug(`/${params.slug}`);
   const posts = getAllPosts();
   const postFeatured = posts.filter((p) => p.frontmatter.featured);
+  const podcasts = posts
+    .filter((post: SinglePost) => {
+      return post.frontmatter.categories.includes("Podcast");
+    })
+    .sort((a: SinglePost, b: SinglePost) => {
+      return (
+        new Date(b.frontmatter.date).getTime() -
+        new Date(a.frontmatter.date).getTime()
+      );
+    });
+
   const markdown = await remark()
     .use(html)
     .process(post.content || "");
   const content = markdown.toString();
   return {
-    props: { ...post, content, postFeatured },
+    props: { ...post, content, postFeatured, podcasts },
   };
 };
 

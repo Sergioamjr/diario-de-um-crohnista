@@ -21,6 +21,23 @@ export default function Sidebar(props: SidebarTypes): JSX.Element {
             );
           })}
         </div>
+        {!!props.podcasts.length && (
+          <div className="sidebar-item">
+            <h3 className="title_">Podcast</h3>
+            {props.podcasts.slice(0, 3).map((e) => {
+              return (
+                <div className="featured-post" key={e.frontmatter.title}>
+                  <div>
+                    <h3 className="title">{e.frontmatter.title}</h3>
+                    <Link href={e.slug}>
+                      <a>Ouça episódio</a>
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
         <div>
           <h3 className="title_">Curta nossa página</h3>
           <iframe
