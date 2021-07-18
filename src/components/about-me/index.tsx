@@ -1,11 +1,12 @@
 export default function AboutMe(): JSX.Element {
   return (
     <div className="about-me">
-      <img
-        alt="Foto do autor, Sérgio Júnior, sorrindo, com uma barba curta e camisa preta."
-        src="/me.jpeg"
-      />
       <div>
+        <img
+          style={{ float: "left" }}
+          alt="Foto do autor, Sérgio Júnior, sorrindo, com uma barba curta e camisa preta."
+          src="/me.jpeg"
+        />
         <h2>Sobre mim</h2>
         <p className="text">
           Meu nome é Sérgio Junior, eu tenho 29 anos e sou portador da Doença de
