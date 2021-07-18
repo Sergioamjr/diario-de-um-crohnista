@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "create:sitemap": "node ./scripts/createSitemapFile.js",
     "get:posts": "node ./scripts/migrateFromWp.js",
     "dev": "next dev",
     "build": "next build",

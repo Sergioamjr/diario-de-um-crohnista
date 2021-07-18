@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: http://diariodeumcrohnista.com.br/sitemap.xml
+Host: http://diariodeumcrohnista.com.br/
