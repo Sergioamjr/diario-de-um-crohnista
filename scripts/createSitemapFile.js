@@ -3,6 +3,7 @@ const path = require("path");
 const fs = require("fs");
 
 const url = "http://diariodeumcrohnista.com.br";
+const dist = "public";
 const postsDirectory = path.join(process.cwd(), "src", "wp");
 
 const template = (content) => {
@@ -14,7 +15,7 @@ const template = (content) => {
 };
 
 const createSitemapFile = (content) => {
-  fs.writeFileSync("sitemap.xml", template(content));
+  fs.writeFileSync(`${dist}/sitemap.xml`, template(content));
 };
 
 const addSiteMapItem = ({ slug, modifiedAt }) => {
