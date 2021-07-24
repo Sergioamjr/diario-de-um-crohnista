@@ -7,8 +7,7 @@ const dist = "public";
 const postsDirectory = path.join(process.cwd(), "src", "wp");
 
 const template = (content) => {
-  return `
-<?xml version="1.0" encoding="UTF-8"?>
+  return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   ${content.join("")} 
 </urlset>`;
