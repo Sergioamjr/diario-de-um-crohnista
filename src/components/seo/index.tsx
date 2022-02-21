@@ -34,6 +34,7 @@ export default function Seo({
       <meta name="apple-mobile-web-app-status-bar-style" content={color} />
       <meta name="description" content={description} />
       <meta name="robots" content="index, follow" />
+      <link rel="icon" type="image/png" href="/favicon.png"></link>
       <link rel="canonical" href={url} />
       <meta property="og:locale" content="pt_BR" />
       <meta property="og:type" content="article" />

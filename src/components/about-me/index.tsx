@@ -9,10 +9,11 @@ export default function AboutMe(): JSX.Element {
         />
         <h2>Sobre mim</h2>
         <p className="text">
-          Meu nome é Sérgio Junior, eu tenho 29 anos e sou portador da Doença de
-          Crohn desde 2014, uma Doença Inflamatória Intestinal (DII), autoimune,
-          sem cura e com causa desconhecida. Mesmo com a doença, pude conquistar
-          muitas coisas e hoje ter uma vida normal.
+          Meu nome é Sérgio Junior, eu tenho {new Date().getFullYear() - 1992}{" "}
+          anos e sou portador da Doença de Crohn desde 2014, uma Doença
+          Inflamatória Intestinal (DII), autoimune, sem cura e com causa
+          desconhecida. Mesmo com a doença, pude conquistar muitas coisas e hoje
+          ter uma vida normal.
         </p>
 
         <p className="text">
@@ -26,20 +27,12 @@ export default function AboutMe(): JSX.Element {
           a vontade de me mandar uma mensagem no whatsapp.
         </p>
         <p className="text">
-          Caso queira tirar alguma dúvida ou falar diretamente comigo, sinta-se
-          a vontade{" "}
+          Caso queira tirar alguma dúvida ou conversar diretamente comigo,
+          sinta-se a vontade{" "}
           <a rel="noreferrer" target="_blank" href="http://wa.me/5511973836084">
             em me mandar uma mensagem no whatsapp
-          </a>
-          ,{" "}
-          <a
-            rel="noreferrer"
-            target="_blank"
-            href="https://www.instagram.com/sergioamjr_/"
-          >
-            me seguir no Instagram
           </a>{" "}
-          ou me mandando um para sergioamjr91@gmail.com.
+          ou me mandando um email para sergioamjr91@gmail.com.
         </p>
       </div>
     </div>
