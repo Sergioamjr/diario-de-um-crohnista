@@ -38,15 +38,6 @@ export default function Footer(): JSX.Element {
                   Facebook do blog
                 </a>
               </li>
-              <li>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  href="https://www.instagram.com/sergioamjr_/"
-                >
-                  Instagram pessoal
-                </a>
-              </li>
             </ul>
           </div>
         </div>
