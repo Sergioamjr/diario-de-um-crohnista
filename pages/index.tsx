@@ -3,6 +3,7 @@ import { getAllPosts } from "~utils";
 import Card from "~components/card";
 import Template from "~components/template";
 import { GetStaticProps } from "next";
+import Link from "next/link";
 
 export default function Home(props: AllPosts): Component {
   return (
@@ -15,6 +16,11 @@ export default function Home(props: AllPosts): Component {
           </li>
         ))}
       </ul>
+      <div style={{ textAlign: "center" }}>
+        <Link href="/publicacoes">
+          <a className="load-more-posts">Mais Publicações</a>
+        </Link>
+      </div>
     </Template>
   );
 }
