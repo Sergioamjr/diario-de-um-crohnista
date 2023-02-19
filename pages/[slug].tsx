@@ -6,8 +6,15 @@ import { getAllPosts, getPostBySlug } from "~utils";
 import { format } from "date-fns";
 import AboutMe from "~components/about-me";
 import Template from "~components/template";
+import { useEffect } from "react";
 
 export default function Slug(props: SinglePostWithSidebar): JSX.Element {
+  useEffect(() => {
+    const allLinks = document.querySelectorAll(".post-content a");
+    allLinks.forEach((link) => {
+      link.setAttribute("target", "_blank");
+    });
+  }, []);
   return (
     <Template postFeatured={props.postFeatured} podcasts={props.podcasts}>
       <div className="body_ fadein-animate">
