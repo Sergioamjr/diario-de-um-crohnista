@@ -1,12 +1,19 @@
-import remark from "remark";
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import rehypeStringify from "rehype-stringify";
+
 import { GetStaticPaths, GetStaticProps } from "next";
-import html from "remark-html";
 import { SinglePost, SinglePostWithSidebar } from "~types";
 import { getAllPosts, getPostBySlug } from "~utils";
 import { format } from "date-fns";
 import AboutMe from "~components/about-me";
 import Template from "~components/template";
 import { useEffect } from "react";
+
+import rehypeParse from "rehype-parse";
+import rehypeRemark from "rehype-remark";
+import remarkStringify from "remark-stringify";
 
 export default function Slug(props: SinglePostWithSidebar): JSX.Element {
   useEffect(() => {
@@ -34,6 +41,7 @@ export default function Slug(props: SinglePostWithSidebar): JSX.Element {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const post = getPostBySlug(`/${params.slug}`);
+
   const posts = getAllPosts();
   const postFeatured = posts.filter((p) => p.frontmatter.featured);
   const podcasts = posts
@@ -47,10 +55,20 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       );
     });
 
-  const markdown = await remark()
-    .use(html)
-    .process(post.content || "");
-  const content = markdown.toString();
+  let content = post?.content;
+
+  const isHtml = post?.content?.trim().startsWith("<");
+
+  if (!isHtml) {
+    const markdown = await unified()
+      .use(remarkParse) // Parse markdown content to a syntax tree
+      .use(remarkRehype) // Turn markdown syntax tree to HTML syntax tree, ignoring embedded HTML
+      .use(rehypeStringify) // Serialize HTML syntax tree
+      .process(post?.content || "");
+
+    content = String(markdown?.value) ?? "";
+  }
+
   return {
     props: { ...post, content, postFeatured, podcasts },
   };

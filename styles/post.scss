@@ -11,6 +11,12 @@
 
 .post-content img {
   width: 100%;
+  max-width: 340px;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  display: flex;
+  border-radius: 4px;
 }
 
 .post-content {
