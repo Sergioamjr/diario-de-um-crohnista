@@ -53,6 +53,14 @@ export default function AboutMe(): JSX.Element {
           sinta-se a vontade{" "}
           <a rel="noreferrer" target="_blank" href="http://wa.me/5511973836084">
             em me mandar uma mensagem no whatsapp
+          </a>
+          ,{" "}
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href="https://www.instagram.com/sergioamjr_"
+          >
+            me acompanhar no Instagram
           </a>{" "}
           ou me mandando um email para sergioamjr91@gmail.com.
         </p>
