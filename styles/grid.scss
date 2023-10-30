@@ -1,5 +1,22 @@
 $columns: 1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12;
 
+.mb_ {
+  margin-bottom: 24px;
+}
+
+.legend {
+  text-align: center;
+  display: block;
+  margin-top: 7px;
+  font-size: 14px;
+  color: #686868;
+}
+
+iframe {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 .grid {
   margin: 0 -15px;
   display: flex;
