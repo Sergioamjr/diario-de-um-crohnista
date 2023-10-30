@@ -27,6 +27,24 @@ export default function Seo({
 }: SeoTypes): JSX.Element {
   return (
     <Head>
+      {isProduction && (
+        <>
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_TRACKING_ID}');`,
+            }}
+          />
+        </>
+      )}
+
       <title>{title}</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="theme-color" content={color} />
@@ -52,24 +70,6 @@ export default function Seo({
       <meta name="twitter:site" content={siteName} />
       <meta name="twitter:image" content={thumbnail} />
       <meta name="twitter:creator" content={author} />
-
-      {isProduction && (
-        <>
-          <script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${GA_TRACKING_ID}');`,
-            }}
-          />
-        </>
-      )}
     </Head>
   );
 }
