@@ -31,15 +31,16 @@ export default function Seo({
         <>
           <script
             async
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-          />
+            src="https://www.googletagmanager.com/gtag/js?id=G-V1Z3GZN487"
+          ></script>
           <script
             dangerouslySetInnerHTML={{
               __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${GA_TRACKING_ID}');`,
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+            
+              gtag('config', 'G-V1Z3GZN487');`,
             }}
           />
         </>
