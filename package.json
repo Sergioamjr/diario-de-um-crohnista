@@ -5,7 +5,7 @@
   "scripts": {
     "create:sitemap": "node ./scripts/createSitemapFile.js",
     "get:posts": "node ./scripts/migrateFromWp.js",
-    "dev": "next dev",
+    "dev": "export NODE_OPTIONS=--openssl-legacy-provider && next dev",
     "build": "next build",
     "start": "next start"
   },
